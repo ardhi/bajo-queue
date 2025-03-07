@@ -1,0 +1,13 @@
+{
+  "boundTo%s%s%d": "'%s' terikat ke %s:%d",
+  "pushPull": "Push/Pull",
+  "pubSub": "Pub/Sub",
+  "reqReply": "Req/Reply",
+  "invalidHeader%s": "Header '%s' tidak valid",
+  "defConnExists": "Koneksi default sudah ada",
+  "pusherStarted%s%s%d": "Pusher dari '%s@%s:%d' sukses dijalankan",
+  "pullerStarted%s%s%d": "Puller dari '%s@%s:%d' sukses dijalankan",
+  "queueError%s": "Kesalahan antrian: %s",
+  "invalidWorkerHandler": "Handler pekerja tidak valid",
+  "jobQueueError%s": "Job queue error: %s"
+}

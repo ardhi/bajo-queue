@@ -1,0 +1,29 @@
+{
+  "name": "bajo-queue",
+  "version": "1.1.1",
+  "description": "Job queue for Bajo Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardhi/bajo-queue.git"
+  },
+  "keywords": [
+    "queue",
+    "job",
+    "bajo",
+    "framework"
+  ],
+  "author": "Ardhi Lukianto <ardhi@lukianto.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ardhi/bajo-queue/issues"
+  },
+  "homepage": "https://github.com/ardhi/bajo-queue#readme",
+  "dependencies": {
+    "zeromq": "^6.3.0"
+  }
+}

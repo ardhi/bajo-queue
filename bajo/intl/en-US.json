@@ -1,0 +1,13 @@
+{
+  "boundTo%s%s%d": "'%s' bound to %s:%d",
+  "pushPull": "Push/Pull",
+  "pubSub": "Pub/Sub",
+  "reqReply": "Req/Reply",
+  "invalidHeader%s": "Invalid header '%s'",
+  "defConnExists": "Default connection already exists",
+  "pusherStarted%s%s%d": "Pusher on '%s@%s:%d' started",
+  "pullerStarted%s%s%d": "Puller on '%s@%s:%d' started",
+  "queueError%s": "Queue error: %s",
+  "invalidWorkerHandler": "Invalid worker handler",
+  "jobQueueError%s": "Job queue error: %s"
+}
