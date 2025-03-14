@@ -33,7 +33,7 @@ async function factory (pkgName) {
 
     start = async () => {
       this.pusher = new zmq.Push({ sendTimeout: 0 })
-      this.pusher.bind(`tcp://${this.config.host}:${this.config.port}`)
+      await this.pusher.bind(`tcp://${this.config.host}:${this.config.port}`)
       this.log.debug('pusherStarted%s%s%d', this.name, this.config.host, this.config.port)
       if (this.app.bajo.config.applet || !this.config.localWorker) return
       this.puller = new zmq.Pull()
