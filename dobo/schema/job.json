@@ -1,0 +1,16 @@
+{
+  "connection": "memory",
+  "properties": [
+    "payload:object",
+    "source::255",
+    "worker::255",
+    {
+      "name": "status",
+      "type": "string",
+      "maxLength": 20,
+      "default": "NEW"
+    },
+    "result:object"
+  ],
+  "feature": ["createdAt", "updatedAt"]
+}
