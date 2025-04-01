@@ -35,7 +35,7 @@ async function factory (pkgName) {
       const { callHandler } = this.app.bajo
       for await (const [msg] of this.puller) {
         const options = JSON.parse(msg.toString())
-        const { jobId, worker, payload, source } = options // see data format above
+        const { id: jobId, worker, payload, source } = options // see data format above
         try {
           const result = await callHandler(worker, { payload, source })
           await this.notifier.send(JSON.stringify({ jobId, result }))
