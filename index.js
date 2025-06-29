@@ -32,11 +32,11 @@ async function factory (pkgName) {
 
     jobRunner = async () => {
       const { callHandler } = this.app.bajo
+      const { omit } = this.lib._
       for await (const [msg] of this.puller) {
         const options = JSON.parse(msg.toString())
-        const { worker, payload, source } = options // see data format above
         try {
-          await callHandler(worker, { payload, source })
+          await callHandler(options.worker, omit(options, ['worker']))
         } catch (err) {
           this.log.error('jobQueueError%s', err.message)
         }
@@ -66,12 +66,11 @@ async function factory (pkgName) {
         this.log.error('disabled%s', this.print.write('manager'))
         return
       }
-      const { worker, payload, source } = options
       try {
-        if (!worker) throw this.error('isRequired%s', this.print.write('worker'))
-        if (!payload) throw this.error('isRequired%s', this.print.write('payload'))
-        if (payload.type === 'error') payload.data = payload.data.message
-        await this.pusher.send(JSON.stringify({ worker, payload, source }))
+        if (!options.worker) throw this.error('isRequired%s', this.print.write('worker'))
+        if (!options.payload) throw this.error('isRequired%s', this.print.write('payload'))
+        if (options.payload.type === 'error') options.payload.data = options.payload.data.message
+        await this.pusher.send(JSON.stringify(options))
       } catch (err) {
         this.log.error('queueError%s', err.message)
       }
