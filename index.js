@@ -38,6 +38,7 @@ async function factory (pkgName) {
         try {
           await callHandler(options.worker, omit(options, ['worker']))
         } catch (err) {
+          if (this.app.bajo.config.log.level === 'trace') console.error(err)
           this.log.error('jobQueueError%s', err.message)
         }
       }
