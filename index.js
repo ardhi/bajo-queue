@@ -10,6 +10,19 @@
 
 import zmq from 'zeromq'
 
+function replacer (key, value) {
+  if (value instanceof RegExp) return ('__REGEXP ' + value.toString())
+  return value
+}
+
+function reviver (key, value) {
+  if (value && value.toString && value.toString().indexOf('__REGEXP ') === 0) {
+    const m = value.split('__REGEXP ')[1].match(/\/(.*)\/(.*)?/)
+    return new RegExp(m[1], m[2] || '')
+  }
+  return value
+}
+
 async function factory (pkgName) {
   const me = this
 
@@ -34,7 +47,7 @@ async function factory (pkgName) {
       const { callHandler } = this.app.bajo
       const { omit } = this.lib._
       for await (const [msg] of this.puller) {
-        const options = JSON.parse(msg.toString())
+        const options = JSON.parse(msg.toString(), reviver)
         try {
           await callHandler(options.worker, omit(options, ['worker']))
         } catch (err) {
@@ -71,7 +84,7 @@ async function factory (pkgName) {
         if (!options.worker) throw this.error('isRequired%s', this.print.write('worker'))
         if (!options.payload) throw this.error('isRequired%s', this.print.write('payload'))
         if (options.payload.type === 'error') options.payload.data = options.payload.data.message
-        await this.pusher.send(JSON.stringify(options))
+        await this.pusher.send(JSON.stringify(options, replacer))
       } catch (err) {
         this.log.error('queueError%s', err.message)
       }
