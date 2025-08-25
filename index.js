@@ -26,11 +26,12 @@ function reviver (key, value) {
 async function factory (pkgName) {
   const me = this
 
-  return class BajoQueue extends this.lib.Plugin {
+  class BajoQueue extends this.lib.Plugin {
+    static alias = 'q'
+    static dependencies = ['dobo']
+
     constructor () {
       super(pkgName, me.app)
-      this.alias = 'q'
-      this.dependencies = ['dobo']
       this.config = {
         worker: true,
         manager: true,
@@ -90,6 +91,8 @@ async function factory (pkgName) {
       }
     }
   }
+
+  return BajoQueue
 }
 
 export default factory
