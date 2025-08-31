@@ -26,7 +26,7 @@ function reviver (key, value) {
 async function factory (pkgName) {
   const me = this
 
-  class BajoQueue extends this.lib.Plugin {
+  class BajoQueue extends this.app.pluginClass.base {
     static alias = 'q'
     static dependencies = ['dobo']
 
@@ -46,7 +46,7 @@ async function factory (pkgName) {
 
     jobRunner = async () => {
       const { callHandler } = this.app.bajo
-      const { omit } = this.lib._
+      const { omit } = this.app.lib._
       for await (const [msg] of this.puller) {
         const options = JSON.parse(msg.toString(), reviver)
         try {
@@ -78,12 +78,12 @@ async function factory (pkgName) {
 
     push = async (options = {}) => {
       if (!this.config.manager) {
-        this.log.error('disabled%s', this.print.write('manager'))
+        this.log.error('disabled%s', this.t('manager'))
         return
       }
       try {
-        if (!options.worker) throw this.error('isRequired%s', this.print.write('worker'))
-        if (!options.payload) throw this.error('isRequired%s', this.print.write('payload'))
+        if (!options.worker) throw this.error('isRequired%s', this.t('worker'))
+        if (!options.payload) throw this.error('isRequired%s', this.t('payload'))
         if (options.payload.type === 'error') options.payload.data = options.payload.data.message
         await this.pusher.send(JSON.stringify(options, replacer))
       } catch (err) {
