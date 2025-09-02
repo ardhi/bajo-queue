@@ -61,13 +61,13 @@ async function factory (pkgName) {
     setupManager = async () => {
       this.pusher = new zmq.Push({ sendTimeout: 0 })
       await this.pusher.bind(`tcp://${this.config.host}:${this.config.port}`)
-      this.log.debug('pusherStarted%s%s%d', this.name, this.config.host, this.config.port)
+      this.log.debug('pusherStarted%s%s%d', this.ns, this.config.host, this.config.port)
     }
 
     setupWorker = async () => {
       this.puller = new zmq.Pull()
       this.puller.connect(`tcp://${this.config.host}:${this.config.port}`)
-      this.log.debug('pullerStarted%s%s%d', this.name, this.config.host, this.config.port)
+      this.log.debug('pullerStarted%s%s%d', this.ns, this.config.host, this.config.port)
       this.jobRunner()
     }
 
