@@ -23,9 +23,20 @@ function reviver (key, value) {
   return value
 }
 
+/**
+ * Plugin factory
+ *
+ * @param {string} pkgName - NPM package name
+ * @returns {class}
+ */
 async function factory (pkgName) {
   const me = this
 
+  /**
+   * BajoQueue class
+   *
+   * @class
+   */
   class BajoQueue extends this.app.pluginClass.base {
     static alias = 'q'
     static dependencies = ['dobo']

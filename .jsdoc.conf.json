@@ -1,0 +1,44 @@
+{
+  "plugins": ["plugins/markdown", "jsdoc-plugin-intersection"],
+  "opts": {
+    "encoding": "utf8",
+    "recurse": true,
+    "verbose": true,
+    "destination": "./docs",
+    "template": "node_modules/clean-jsdoc-theme",
+    "tutorials": "./tutorial",
+    "readme": "./docs-static/home.md",
+    "theme_opts": {
+      "static_dir": ["./docs-static"],
+      "default_theme": "light",
+      "display-module-header": true,
+      "title": "Bajo Queue",
+      "homepageTitle": "Bajo Queue",
+      "sections": ["Tutorials", "Classes", "Events", "Modules", "Global"],
+      "menu": [{
+        "title": "Bajo",
+        "link": "https://bajo.app"
+      }, {
+        "title": "NPM",
+        "link": "https://www.npmjs.com/package/bajo-queue"
+      }, {
+        "title": "Github",
+        "link": "https://github.com/ardhi/bajo-queue"
+      }]
+    }
+  },
+  "source": {
+    "include": ["."],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "exclude": ["node_modules", "docs", "test"]
+  },
+  "markdown": {
+    "hardwrap": false,
+    "idInHeadings": true
+  },
+  "sourceType": "module",
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}
