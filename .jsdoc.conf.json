@@ -7,9 +7,8 @@
     "destination": "./docs",
     "template": "node_modules/clean-jsdoc-theme",
     "tutorials": "./tutorial",
-    "readme": "./docs-static/home.md",
+    "readme": "../shared/static/home.md",
     "theme_opts": {
-      "static_dir": ["./docs-static"],
       "default_theme": "light",
       "display-module-header": true,
       "title": "Bajo Queue",
@@ -39,6 +38,13 @@
   "sourceType": "module",
   "templates": {
     "cleverLinks": false,
-    "monospaceLinks": false
+    "monospaceLinks": false,
+    "default": {
+      "staticFiles": {
+        "include": [
+          "../shared"
+        ]
+      }
+    }
   }
 }
