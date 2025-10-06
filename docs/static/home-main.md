@@ -11,7 +11,7 @@
 
 ## Hire Me
 
-If you have a Bajo Framework-based application project, please contact me via <a href="mailto:ardhi.lukianto@gmail.com">email</a>. I'd be happy to work on it at a competitive price and with fast turnaround!
+If you have a Bajo Framework-based application project and need a professional service or assistance, please <a href="https://github.com/ardhi#pro-service">click here</a>. I'd be happy to work on it at a competitive price and with fast turnaround!
 
 ## Support Me
 
