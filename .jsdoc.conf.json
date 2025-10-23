@@ -14,14 +14,14 @@
       "homepageTitle": "BajoQueue API",
       "sections": ["Classes", "Events", "Modules", "Global"],
       "menu": [{
-        "title": "Bajo",
-        "link": "https://bajo.app"
-      }, {
         "title": "NPM",
         "link": "https://www.npmjs.com/package/bajo-queue"
       }, {
         "title": "Github",
         "link": "https://github.com/ardhi/bajo-queue"
+      }, {
+        "title": "Bajo",
+        "link": "https://bajo.app"
       }]
     }
   },
