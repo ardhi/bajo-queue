@@ -10,8 +10,8 @@
     "theme_opts": {
       "default_theme": "light",
       "display-module-header": true,
-      "title": "Bajo Queue",
-      "homepageTitle": "Bajo Queue",
+      "title": "BajoQueue API",
+      "homepageTitle": "BajoQueue API",
       "sections": ["Classes", "Events", "Modules", "Global"],
       "menu": [{
         "title": "Bajo",
