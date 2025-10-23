@@ -6,14 +6,13 @@
     "verbose": true,
     "destination": "./docs",
     "template": "node_modules/clean-jsdoc-theme",
-    "tutorials": "./tutorial",
-    "readme": "../shared/static/home.md",
+    "readme": "./docs/static/home.md",
     "theme_opts": {
       "default_theme": "light",
       "display-module-header": true,
       "title": "Bajo Queue",
       "homepageTitle": "Bajo Queue",
-      "sections": ["Tutorials", "Classes", "Events", "Modules", "Global"],
+      "sections": ["Classes", "Events", "Modules", "Global"],
       "menu": [{
         "title": "Bajo",
         "link": "https://bajo.app"
@@ -38,13 +37,6 @@
   "sourceType": "module",
   "templates": {
     "cleverLinks": false,
-    "monospaceLinks": false,
-    "default": {
-      "staticFiles": {
-        "include": [
-          "../shared"
-        ]
-      }
-    }
+    "monospaceLinks": false
   }
 }
